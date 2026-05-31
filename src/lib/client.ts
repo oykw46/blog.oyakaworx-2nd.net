@@ -19,10 +19,10 @@ export const client = createClient({
     // createClient は、microcms-js-sdk ライブラリからインポートされた関数で、クライアントインスタンスを作成するために使用される。
     // ここでは、createClient 関数を呼び出して、serviceDomain と apiKey を指定してクライアントインスタンスを作成している。
 
-    serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
+    serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN || "",
     // process.env.MICROCMS_SERVICE_DOMAIN は、MICROCMS_SERVICE_DOMAIN 環境変数の値を参照している。
 
-    apiKey: process.env.MICROCMS_API_KEY,
+    apiKey: process.env.MICROCMS_API_KEY || "",
     // process.env.MICROCMS_API_KEY は、MICROCMS_API_KEY 環境変数の値を参照している。
 })
 

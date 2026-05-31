@@ -4,6 +4,7 @@ import HeaderTitle from "@/components/HeaderTitle";
 import Sidebar from "@/components/Sidebar";
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{
@@ -66,7 +67,7 @@ export default async function BlogPage({ params }: { params: Promise<{ id: strin
     const blog = await getDetail(id); // URL の [id] 部分を受け取ってデータを取得
 
     if (!blog) {
-        return <main className={styles.main}>記事が見つかりませんでした。</main>
+        notFound();
     }
 
     // 今開いている記事の公開日時から、前後の記事のデータを取得する。

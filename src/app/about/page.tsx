@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import { Suspense } from "react";
 import HeaderTitle from "@/components/HeaderTitle";
 import SmoothLink from "@/components/SmoothLink";
 import { Metadata } from "next";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     },
 }
 
-export default function About() { // ブログ詳細コンポーネント。params: Promise<{ id: string }> と書くことで、TypeScript に「後から ID が届くよ」と教えます。
+function AboutContent() { // ブログ詳細コンポーネント。params: Promise<{ id: string }> と書くことで、TypeScript に「後から ID が届くよ」と教えます。
     return (
         <>
             <HeaderTitle title="About" />
@@ -72,7 +73,7 @@ export default function About() { // ブログ詳細コンポーネント。para
                             </div>
                         </div>
                     </div>
-                    <div className="box_subSection">
+                    <div className={styles.subSection}>
                         <h3 className={styles.title_medium}>プロフィール</h3>
                         <table className={styles.table}>
                             <tbody>
@@ -91,7 +92,7 @@ export default function About() { // ブログ詳細コンポーネント。para
                             </tbody>
                         </table>
                     </div>
-                    <div className="box_subSection">
+                    <div className={styles.subSection}>
                         <h3 className={styles.title_medium}>技術スタック</h3>
                         <h4 className={styles.title_small}>使用言語</h4>
                         <ul className={styles.list}>
@@ -139,6 +140,16 @@ export default function About() { // ブログ詳細コンポーネント。para
                     </div>
                 </section>
             </main>
+        </>
+    )
+}
+
+export default function About() {
+    return (
+        <>
+            <Suspense fallback={<main className={styles.main}>読み込み中...</main>}>
+               <AboutContent />
+            </Suspense>
         </>
     )
 }
