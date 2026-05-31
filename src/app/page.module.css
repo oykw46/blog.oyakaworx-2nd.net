@@ -132,6 +132,10 @@
 
 /* ページネーション */
 .pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 4em;
     position: relative;
     padding-block: 3em;
 }
@@ -143,16 +147,114 @@
     font-size: 1.5em;
     font-style: normal;
 }
-.pagination > a {
+
+.pagination a {
+	color: var(--main-color);
+	display: flex;
+	align-items: center;
+	margin-top: 1em;
+	text-align: center;
+	transition: .1s padding-inline ease-in-out;
+	padding-inline: 1.1em;
+	position: relative;
+}
+.pagination .prevLink a::before,
+.pagination .nextLink a::after {
+	content: '';
+	background-color: var(--text-color);
+	letter-spacing: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: .6em;
+	width: .4em;
+	z-index: -1;
+}
+.pagination .prevLink a::before {
+	clip-path: polygon(100% 100%, 100% 0, 0 50%);
+	left: 0;
+}
+.pagination .nextLink a {
+    justify-content: flex-end;
+}
+.pagination a .en {
+    display: none;
+}
+.pagination .nextLink a::after {
+	clip-path: polygon(0 0, 0% 100%, 100% 50%);
+	right: 0;
+}
+@media screen and (min-width: 1025px) {
+    .pagination a:hover {
+        padding-inline: 2em;
+        text-decoration: none;
+    }
+    .pagination .prevLink a:hover::before {
+        animation: scaleChangePrev .7s forwards;
+    }
+    .pagination .nextLink a:hover::after {
+        animation: scaleChangeNext .7s forwards;
+    }
+}
+.pagination .pageNumber {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.pageButtonPrev {
-    left: 0;
+@keyframes scaleChangePrev {
+	0% {
+		border-radius: 0;
+		clip-path: polygon(100% 100%, 100% 0, 0 50%);
+	}
+	15% {
+		clip-path: polygon(100% 100%, 100% 0, 0 50%);
+		transform: translate(-2em, -50%);
+		height: 8px;
+		width: 100%;
+	}
+	30% {
+		border-radius: 0;
+		width: calc(100% + 1em);
+	}
+	70% {
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+	100% {
+		border-radius: 100vmax;
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
 }
-.pageButtonNext {
-    right: 0;
+@keyframes scaleChangeNext {
+	0% {
+		border-radius: 0;
+		clip-path: polygon(0 0, 0% 100%, 100% 50%);
+	}
+	15% {
+		clip-path: polygon(0 0, 0% 100%, 100% 50%);
+		transform: translate(2em, -50%);
+		height: 8px;
+		width: 100%;
+	}
+	30% {
+		border-radius: 0;
+		width: calc(100% + 1em);
+	}
+	70% {
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+	100% {
+		border-radius: 100vmax;
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
 }
 
 /* 該当なし専用 */

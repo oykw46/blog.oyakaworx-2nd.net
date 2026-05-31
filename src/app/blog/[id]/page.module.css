@@ -167,21 +167,23 @@
 	clip-path: polygon(0 0, 0% 100%, 100% 50%);
 	right: 0;
 }
-.content .navigation a:hover {
-    padding-inline: 2em;
-    text-decoration: none;
-}
-.content .navigation a:hover .jp {
-    display: none;
-}
-.content .navigation a:hover .en {
-    display: block;
-}
-.content .navigation .prevLink a:hover::before {
-	animation: scaleChangePrev .7s forwards;
-}
-.content .navigation .nextLink a:hover::after {
-	animation: scaleChangeNext .7s forwards;
+@media screen and (min-width: 1025px) {
+    .content .navigation a:hover {
+        padding-inline: 2em;
+        text-decoration: none;
+    }
+    .content .navigation a:hover .jp {
+        display: none;
+    }
+    .content .navigation a:hover .en {
+        display: block;
+    }
+    .content .navigation .prevLink a:hover::before {
+        animation: scaleChangePrev .7s forwards;
+    }
+    .content .navigation .nextLink a:hover::after {
+        animation: scaleChangeNext .7s forwards;
+    }
 }
 @keyframes scaleChangePrev {
 	0% {
