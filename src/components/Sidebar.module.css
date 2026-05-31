@@ -9,7 +9,7 @@
 }
 
 .section + .section {
-    margin-top: clamp(2em, 7vw, 60px);
+    margin-top: clamp(5em, 7vw, 60px);
 }
 
 /* プロフィール */
@@ -18,6 +18,18 @@
         margin-inline: auto;
         width: 70%;        
     }
+}
+@media (max-width: 768px) {
+    .profileBox {
+        width: 100%;
+    }
+    .avater {
+        display: block;
+        margin-inline: auto;
+        margin-bottom: 2em;
+        width: 100%;
+    }
+
 }
 .avater {
     aspect-ratio: 3 / 2;
@@ -74,9 +86,8 @@
     }
 }
 @media (max-width: 640px) {
-    .recentNoImage,
     .recentImage {
-        aspect-ratio: 3 / 2;
+        aspect-ratio: 1 / 1;
         object-fit: cover;
         max-width: 20vw;
     }

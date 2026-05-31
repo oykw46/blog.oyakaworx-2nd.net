@@ -27,7 +27,7 @@ export default function Sidebar({ recentBlogs, categories }: Props) {
                         親川 将輝
                     </p>
                     <p className={styles.profileDesc}>
-                        ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。
+                        Web業界歴10年のデベロッパーです！南国の地で黒糖飴を舐めながら日々コーディング！<br />今後は、Webアプリケーション領域でも「価値」を届けられるエンジニアを目指して勉強しています✍️
                     </p>
                     <div className="button">
                         <a href="/about/">view more <span>About</span></a>
