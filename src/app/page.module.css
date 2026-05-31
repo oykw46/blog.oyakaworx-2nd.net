@@ -152,7 +152,6 @@
 	color: var(--main-color);
 	display: flex;
 	align-items: center;
-	margin-top: 1em;
 	text-align: center;
 	transition: .1s padding-inline ease-in-out;
 	padding-inline: 1.1em;
@@ -174,15 +173,18 @@
 	clip-path: polygon(100% 100%, 100% 0, 0 50%);
 	left: 0;
 }
+.pagination .nextLink {
+    margin-inline: auto 0;
+}
 .pagination .nextLink a {
     justify-content: flex-end;
-}
-.pagination a .en {
-    display: none;
 }
 .pagination .nextLink a::after {
 	clip-path: polygon(0 0, 0% 100%, 100% 50%);
 	right: 0;
+}
+.pagination a:hover span {
+    text-transform: uppercase;
 }
 @media screen and (min-width: 1025px) {
     .pagination a:hover {
