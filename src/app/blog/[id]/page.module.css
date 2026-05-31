@@ -1,0 +1,341 @@
+.main {
+    margin-inline: auto;
+    width: 90%;
+}
+
+.image {
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    height: auto;
+    width: 100%;
+}
+
+/* 投稿データ */
+.flex {
+    display: flex;
+    gap: 0 2em;
+    border-bottom: 1px solid #a1a1a1;
+    margin-bottom: 2em;
+    padding-bottom: .5em;
+}
+.postData {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: .75em;
+    font-size: var(--font-size-basic);
+}
+/* カテゴリータグ */
+.category {
+    background-color: var(--text-color);
+    border-radius: 100vmax;
+    color: var(--background);
+    display: inline-block;
+    font-weight: bold;
+    line-height: 2;
+    padding: 0 1em;
+    text-align: center;
+    height: fit-content;
+}
+/* 投稿日 */
+.date {
+    color: #ccc;
+    display: inline-flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    position: relative;
+    height: fit-content;
+    padding-bottom: .25em;
+}
+.date::before {
+    content: '';
+    background-color: #ccc;
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    height: 1px;
+    width: 80%;
+}
+.yearMonth {
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.3;
+}
+.day {
+    font-size: clamp(20px, 2.5em, 40px);
+    line-height: 1;
+    margin-top: -.35em;
+    padding-left: 1.2em;
+    text-align: right;
+}
+
+@media (min-width: 1025px) {
+    .date,
+    .null {
+        width: 93px;
+    }
+}
+@media (max-width: 1024px) {
+    .null {
+        display: none;
+    }
+    .date {
+        margin-left: 0;
+    }
+    .date::before {
+        left: 47%;
+    }
+    .yearMonth {
+        font-size: 1em;
+        line-height: 1.15;
+    }
+    .day {
+        font-size: clamp(20px, 1.7em, 30px);
+    }
+}
+
+/* 本文（HTML）のスタイルを整える */
+.content {
+    flex: 1;
+    font-size: var(--font-size-middle);
+    line-height: 2.5;
+}
+.content h2 {
+    border-left: 5px solid #333;
+    padding-left: 1rem;
+    margin: 2rem 0 1rem;
+}
+.content .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 4em;
+}
+.content .navigation a {
+	color: var(--main-color);
+	display: flex;
+	align-items: center;
+	margin-top: 1em;
+	text-align: center;
+	transition: .1s padding-inline ease-in-out;
+	padding-inline: 1.1em;
+	position: relative;
+}
+.content .navigation .prevLink a::before,
+.content .navigation .nextLink a::after {
+	content: '';
+	background-color: var(--text-color);
+	letter-spacing: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: .6em;
+	width: .4em;
+	z-index: -1;
+}
+.content .navigation .prevLink a::before {
+	clip-path: polygon(100% 100%, 100% 0, 0 50%);
+	left: 0;
+}
+.content .navigation .nextLink a {
+    justify-content: flex-end;
+}
+.content .navigation a .en {
+    display: none;
+}
+.content .navigation .nextLink a::after {
+	clip-path: polygon(0 0, 0% 100%, 100% 50%);
+	right: 0;
+}
+.content .navigation a:hover {
+    padding-inline: 2em;
+    text-decoration: none;
+}
+.content .navigation a:hover .jp {
+    display: none;
+}
+.content .navigation a:hover .en {
+    display: block;
+}
+.content .navigation .prevLink a:hover::before {
+	animation: scaleChangePrev .7s forwards;
+}
+.content .navigation .nextLink a:hover::after {
+	animation: scaleChangeNext .7s forwards;
+}
+@keyframes scaleChangePrev {
+	0% {
+		border-radius: 0;
+		clip-path: polygon(100% 100%, 100% 0, 0 50%);
+	}
+	15% {
+		clip-path: polygon(100% 100%, 100% 0, 0 50%);
+		transform: translate(-2em, -50%);
+		height: 8px;
+		width: 100%;
+	}
+	30% {
+		border-radius: 0;
+		width: calc(100% + 1em);
+	}
+	70% {
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+	100% {
+		border-radius: 100vmax;
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+}
+@keyframes scaleChangeNext {
+	0% {
+		border-radius: 0;
+		clip-path: polygon(0 0, 0% 100%, 100% 50%);
+	}
+	15% {
+		clip-path: polygon(0 0, 0% 100%, 100% 50%);
+		transform: translate(2em, -50%);
+		height: 8px;
+		width: 100%;
+	}
+	30% {
+		border-radius: 0;
+		width: calc(100% + 1em);
+	}
+	70% {
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+	100% {
+		border-radius: 100vmax;
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+}
+.content .backLink {
+    margin-inline: auto;
+    margin-block: 0 2em;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.content .backLink a {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 250px;
+    width: 100%;
+}
+.content .backLink a::before {
+	content: '';
+	background-color: var(--text-color);
+	letter-spacing: 0;
+	position: absolute;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	height: 0;
+	width: 0;
+	z-index: -1;
+}
+.content .navigation .backLink a:hover::before {
+	animation: scaleChangeBack .7s forwards;
+}
+@keyframes scaleChangeBack {
+	0% {
+		border-radius: 0;
+	}
+	15% {
+		transform: translate(-50%, -50%);
+		height: 8px;
+		width: 100%;
+	}
+	30% {
+		border-radius: 0;
+		width: calc(100% + 1em);
+	}
+	70% {
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+	100% {
+		border-radius: 100vmax;
+		clip-path: fill-box;
+		height: 100%;
+		width: 100%;
+	}
+}
+.content blockquote {
+    border-radius: 8px;
+    font-style: italic;
+    position: relative;
+    padding: 1em;
+    box-sizing: border-box;
+    font-style: italic;
+    background: var(--quote-color);
+}
+.content blockquote:before{
+    display: inline-block;
+    content: '"';
+    color: #cfcfcf;
+    font-size: 3em;
+    line-height: 1;
+    font-weight: 900;
+}
+.content a {
+	color: var(--main-color);
+	text-decoration: none;
+}
+.content a:hover {
+	text-decoration: underline;
+}
+.content p:not(:last-of-type) {
+    margin-bottom: 3rem;
+}
+
+/* 画面全体をCSS Gridを使って2カラムに分割 */
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(30px, 9%, 80px);
+    margin-inline: auto;
+    max-width: 1200px;
+    width: 90%;
+}
+@media (min-width: 769px) {
+  .main {
+    flex: 1;
+  }
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .main {
+        width: 100%;
+    }
+}
+
+.main {
+    /* background-color: var(--background); */
+    border-radius: 8px;
+}
+
+.title {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.3;
+}
+@media (max-width: 640px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}

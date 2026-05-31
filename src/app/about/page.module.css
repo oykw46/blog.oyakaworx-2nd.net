@@ -1,0 +1,228 @@
+/* コンテンツ大枠 */
+.content {
+    margin-inline: auto;
+    max-width: 1200px;
+    width: 90%;
+}
+.section + * {
+    padding-top: 7em;
+}
+
+/* 見出し */
+.title {
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.3;
+}
+@media (max-width: 640px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}
+
+/* アンカーリンク */
+.anchorlink {
+    border: 1px solid var(--text-color);
+    border-radius: 100vmax;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em 0;
+    margin-inline: auto;
+    overflow: hidden;
+    max-width: 768px;
+    width: 90%;
+}
+.anchorlink li {
+    flex: 1;
+    list-style-type: none;
+}
+.anchorlink li button {
+    background-color: transparent;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5em;
+    font-size: var(--font-size-middle);
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 1em;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.anchorlink li button::after {
+    content: '';
+    color: var(--main-color);
+    border: .1em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    transform: translateY(-25%) rotate(135deg);
+    position: relative;
+    top: 0;
+    transition: .3s top ease-in-out;
+	height: .4em;
+	width: .4em;
+}
+.anchorlink li button:hover::after {
+    top: 3px;
+    transition: .3s top ease-in-out;
+}
+.anchorlink li:nth-of-type(1) {
+    border-right: 0.5px solid var(--text-color);
+}
+.anchorlink li:nth-of-type(2) {
+    border-left: 0.5px solid var(--text-color);
+}
+@media (max-width: 768px) {
+    .anchorlink li button {
+        font-size: var(--font-size-basic);
+    }
+}
+
+/* 本文（HTML）のスタイルを整える */
+.content {
+    font-size: var(--font-size-middle);
+    margin-bottom: 2em;
+    line-height: 2.5;
+}
+.content h2 {
+    font-size: var(--font-size-title);
+    margin-bottom: 0.75em;
+}
+.content h3 {
+    border-left: 5px solid var(--text-color);
+    color: var(--text-color);
+    font-size: var(--font-size-middle);
+    line-height: 2;
+    padding-left: 1rem;
+    margin: 5em 0 1em;
+}
+.content p {
+    word-break: keep-all;
+}
+.content .backLink {
+    display: inline-block;
+    margin-block: 4em 2em;
+}
+.content blockquote {
+    border-radius: 8px;
+    font-style: italic;
+    position: relative;
+    padding: 1em;
+    box-sizing: border-box;
+    font-style: italic;
+    background: var(--quote-color);
+}
+.content blockquote:before{
+    display: inline-block;
+    content: '"';
+    color: #cfcfcf;
+    font-size: 3em;
+    line-height: 1;
+    font-weight: 900;
+}
+.content p:not(:last-of-type) {
+    margin-bottom: 2em;
+}
+
+/* flexレイアウト */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em 5%;
+    justify-content: space-between;
+}
+.flex_img img {
+    border-radius: 1em;
+}
+@media (min-width: 1000px) {
+    .flex_img,
+    .flex_text {
+        width: 47.5%;
+    }
+    .flex_img {
+        position: static;
+        top: 0;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 999px) {
+    .flex_text,
+    .flex_img {
+        width: 70%;
+        margin-inline: auto;
+    }
+    
+}
+@media (max-width: 999px) {
+    .flex {
+        flex-direction: column;
+    }
+    .flex_img img {
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+    }
+}
+
+/* テーブルレイアウト */
+.table {
+    border-collapse: collapse;
+    font-size: var(--font-size-basic);
+    max-width: 960px;
+    width: 100%;
+}
+.table tr:not(:last-of-type) th,
+.table tr:not(:last-of-type) td {
+    border-bottom: 1px solid #fff;
+}
+.table th,
+.table td {
+    text-align: left;
+    word-break: keep-all;
+}
+.table th {
+    background-color: var(--border-color);
+}
+@media (min-width: 641px) {
+    .table th,
+    .table td {
+        padding: 1rem;
+    }
+    .table th {
+        min-width: 11em;
+        width: 15%;
+    }
+    .table td {
+        width: 35%;
+    }
+}
+@media (max-width: 640px) {
+    .table th,
+    .table td {
+        display: block;
+        padding: 0.5em 2em;
+        width: 100%;
+    }
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 2.5em;
+    margin-left: 1.25em;
+}
+.list li {
+    color: var(--main-color);
+}
+.list span {
+    color: var(--text-color);
+}
+.list + * {
+    margin-top: 3em;
+}
+.title_small {
+    font-size: var(--font-size-basic);
+    padding-left: 0.25em;
+    line-height: 1.5;
+}

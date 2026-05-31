@@ -1,0 +1,22 @@
+.list {
+    display: flex;
+    gap: 1em;
+}
+
+.item {
+    list-style: none;
+}
+
+.navLink {
+    color: var(--main-color);
+}
+
+.navLink:hover {
+    opacity: .7;
+}
+
+@media (max-width: 767px) {
+    .nav {
+        display: none;
+    }
+}

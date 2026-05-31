@@ -1,0 +1,12 @@
+.title {
+    background: url(/bg_title.webp);
+    color: var(--main-color);
+    font-weight: normal;
+    letter-spacing: .5em;
+    margin-inline: auto;
+    margin-bottom: 2em;
+    padding: 1em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+}

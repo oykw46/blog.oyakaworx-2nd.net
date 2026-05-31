@@ -1,0 +1,99 @@
+.sidebar {
+    font-size: var(--font-size-basic);
+    width: 250px;
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+.section + .section {
+    margin-top: clamp(2em, 7vw, 60px);
+}
+
+/* プロフィール */
+@media (min-width: 640px) and (max-width: 768px) {
+    .profileBox {
+        margin-inline: auto;
+        width: 70%;        
+    }
+}
+.avater {
+    aspect-ratio: 3 / 2;
+    border-radius: 1em;
+    background-color: #ccc;
+    object-fit: cover;
+}
+
+/* New Entry */
+.recentList {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.recentItem {
+    list-style-type: none;
+}
+.recentItem:hover img {
+    opacity: 0.5;
+    transition: .3s opacity ease-in-out;
+}
+.recentLink {
+    display: flex;
+    gap: .5em 1em;
+    line-height: 1.2;
+}
+.recentNoImage,
+.recentImage {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    max-width: 40%;
+    min-width: 100px;
+}
+.recentNoImage {
+    background-color: #ccc;
+    object-fit: contain;
+    padding: .5em;
+}
+.recentImage {
+    object-fit: cover;
+}
+@media (min-width: 640px) and (max-width: 768px) {
+    .recentList {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .recentItem {
+        width: 47.5%;
+    }
+    .recentNoImage,
+    .recentImage {
+        max-width: 15vw;
+    }
+}
+@media (max-width: 640px) {
+    .recentNoImage,
+    .recentImage {
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        max-width: 20vw;
+    }
+}
+.recentTextContainer {
+    color: #a1a1a1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5em;
+    padding-block: 0.5em;
+}
+.recentTitle {
+    display: block;
+}
+.recentDate {
+    display: block;
+    font-size: 12px;
+    width: 100%;
+}
