@@ -15,6 +15,7 @@
 /* 投稿データ */
 .flex {
     display: flex;
+    align-items: flex-end;
     gap: 0 2em;
     border-bottom: 1px solid #a1a1a1;
     margin-bottom: 2em;
@@ -25,7 +26,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    gap: .75em;
+    gap: 1em;
     font-size: var(--font-size-basic);
 }
 /* カテゴリータグ */
@@ -39,6 +40,11 @@
     padding: 0 1em;
     text-align: center;
     height: fit-content;
+}
+@media (max-width: 640px) {
+    .category {
+        font-size: var(--font-size-small);
+    }
 }
 /* 投稿日 */
 .date {
