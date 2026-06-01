@@ -4,6 +4,8 @@ import CategoryList from "./CategoryList";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
 
+export const revalidate = 60; // ISR（Incremental Static Regeneration）を有効にして、60秒ごとにページを再生成する設定。これにより、最新のブログ記事が反映されるようになる。
+
 type Props = {
     recentBlogs: Blog[];
     categories: Category[];
@@ -43,7 +45,7 @@ export default function Sidebar({ recentBlogs, categories }: Props) {
                 <ul className={styles.recentList}>
                     {recentBlogs.map((blog) => {
                         const dateString = blog.publishedAt ? blog.publishedAt.substring(0, 10) : "";
-                        const displayDate = blog.publishedAt ? new Date(blog.publishedAt).toLocaleDateString() : "";
+                        const displayDate = blog.publishedAt ? new Date(blog.publishedAt).toLocaleDateString("ja-JP") : "";
 
                         return (
                             <li key={blog.id} className={styles.recentItem}>
