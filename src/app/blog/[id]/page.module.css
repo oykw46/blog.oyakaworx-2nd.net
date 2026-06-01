@@ -313,7 +313,7 @@
 .content a {
 	color: var(--main-color);
 	text-decoration: none;
-    wored-break: break-all;
+    word-break: break-all;
 }
 .content a:hover {
 	text-decoration: underline;
