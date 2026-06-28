@@ -12,6 +12,8 @@ type Props = {
     }>;
 };
 
+export const dynamicParams = true;
+
 // 全記事の ID を事前に取得してビルドを高速化する（静的生成の設定）
 export async function generateStaticParams() { // Next.js における「静的サイト生成（SSG）」を爆速化させる非同期関数。
     const { contents } = await getList(); // client.ts 内の「getList」を実行。
